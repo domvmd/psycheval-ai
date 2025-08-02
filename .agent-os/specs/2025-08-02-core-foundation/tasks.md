@@ -27,15 +27,16 @@ These are the tasks to be completed for the spec detailed in @.agent-os/specs/20
   - [x] 2.7 Verify all tests pass
         ✅ Supabase integration complete. Migration needs to be run in Supabase SQL Editor
 
-- [ ] 3. Authentication System
-  - [ ] 3.1 Write tests for authentication flows and protected routes
-  - [ ] 3.2 Implement authentication context and hooks
-  - [ ] 3.3 Create login, signup, and password reset pages
-  - [ ] 3.4 Implement email/password authentication flow
-  - [ ] 3.5 Implement Google OAuth authentication flow
-  - [ ] 3.6 Create protected route middleware
-  - [ ] 3.7 Implement user profile creation on signup
-  - [ ] 3.8 Verify all tests pass
+- [x] 3. Authentication System
+  - [x] 3.1 Write tests for authentication flows and protected routes
+  - [x] 3.2 Implement authentication context and hooks
+  - [x] 3.3 Create login, signup, and password reset pages
+  - [x] 3.4 Implement email/password authentication flow
+  - [x] 3.5 Implement Google OAuth authentication flow
+  - [x] 3.6 Create protected route middleware
+  - [x] 3.7 Implement user profile creation on signup
+  - [x] 3.8 Verify all tests pass
+        ✅ Authentication system complete with email/password and Google OAuth support
 
 - [ ] 4. Audio Recording and Upload Interface
   - [ ] 4.1 Write tests for audio recording components and hooks
