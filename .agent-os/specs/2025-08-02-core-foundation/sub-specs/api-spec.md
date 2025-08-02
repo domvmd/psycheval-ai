@@ -14,13 +14,15 @@ The API consists of Next.js API routes and Supabase Edge Functions for handling 
 ### POST /api/sessions/create
 
 **Purpose:** Create a new recording session
-**Parameters:** 
+**Parameters:**
+
 - `patientIdentifier` (string, required) - Anonymized patient ID
 - `sessionType` (string, required) - Type of session (initial, followup, crisis, other)
 - `recordingType` (string, required) - Recording method (browser, upload)
 - `notes` (string, optional) - Initial session notes
 
 **Response:**
+
 ```json
 {
   "id": "uuid",
@@ -33,6 +35,7 @@ The API consists of Next.js API routes and Supabase Edge Functions for handling 
 ```
 
 **Errors:**
+
 - 400: Invalid session type or recording type
 - 401: Unauthorized
 - 500: Server error
@@ -41,11 +44,13 @@ The API consists of Next.js API routes and Supabase Edge Functions for handling 
 
 **Purpose:** Upload audio chunk for streaming recording
 **Parameters:**
+
 - `sessionId` (string, required) - Session UUID
 - `chunk` (Blob, required) - Audio data chunk
 - `isLastChunk` (boolean, required) - Indicates final chunk
 
 **Response:**
+
 ```json
 {
   "success": true,
@@ -55,6 +60,7 @@ The API consists of Next.js API routes and Supabase Edge Functions for handling 
 ```
 
 **Errors:**
+
 - 404: Session not found
 - 401: Unauthorized
 - 413: File too large
@@ -64,10 +70,12 @@ The API consists of Next.js API routes and Supabase Edge Functions for handling 
 
 **Purpose:** Mark recording as complete and trigger transcription
 **Parameters:**
+
 - `sessionId` (string, required) - Session UUID
 - `duration` (number, required) - Total duration in seconds
 
 **Response:**
+
 ```json
 {
   "id": "uuid",
@@ -77,6 +85,7 @@ The API consists of Next.js API routes and Supabase Edge Functions for handling 
 ```
 
 **Errors:**
+
 - 404: Session not found
 - 401: Unauthorized
 - 400: Session already completed
@@ -85,12 +94,14 @@ The API consists of Next.js API routes and Supabase Edge Functions for handling 
 
 **Purpose:** List user's sessions with pagination
 **Parameters:**
+
 - `page` (number, optional) - Page number (default: 1)
 - `limit` (number, optional) - Items per page (default: 20)
 - `patientId` (string, optional) - Filter by patient
 - `status` (string, optional) - Filter by status
 
 **Response:**
+
 ```json
 {
   "sessions": [
@@ -121,10 +132,12 @@ The API consists of Next.js API routes and Supabase Edge Functions for handling 
 
 **Purpose:** Upload complete audio file for a session
 **Parameters:**
+
 - `sessionId` (string, required) - Session UUID
 - `file` (File, required) - Audio file (MP3, WAV, M4A, WebM)
 
 **Response:**
+
 ```json
 {
   "id": "uuid",
@@ -136,6 +149,7 @@ The API consists of Next.js API routes and Supabase Edge Functions for handling 
 ```
 
 **Errors:**
+
 - 404: Session not found
 - 401: Unauthorized
 - 413: File too large (>500MB)
@@ -146,9 +160,11 @@ The API consists of Next.js API routes and Supabase Edge Functions for handling 
 
 **Purpose:** Get session details with transcription
 **Parameters:**
+
 - `sessionId` (string, required) - Session UUID
 
 **Response:**
+
 ```json
 {
   "id": "uuid",
@@ -178,6 +194,7 @@ The API consists of Next.js API routes and Supabase Edge Functions for handling 
 **Trigger:** Database trigger on audio_processing_queue insert
 
 **Flow:**
+
 1. Fetch audio file from storage
 2. Convert to Whisper-compatible format if needed
 3. Send to OpenAI Whisper API
@@ -186,20 +203,21 @@ The API consists of Next.js API routes and Supabase Edge Functions for handling 
 6. Send real-time update
 
 **Implementation:**
+
 ```typescript
-import { serve } from 'https://deno.land/std@0.168.0/http/server.ts'
-import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
+import { serve } from 'https://deno.land/std@0.168.0/http/server.ts';
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 
 serve(async (req: Request) => {
-  const { sessionId, userId } = await req.json()
-  
+  const { sessionId, userId } = await req.json();
+
   // Process audio file
   // Call Whisper API
   // Store results
   // Update status
-  
-  return new Response(JSON.stringify({ success: true }))
-})
+
+  return new Response(JSON.stringify({ success: true }));
+});
 ```
 
 ### webhook-transcription
@@ -209,6 +227,7 @@ serve(async (req: Request) => {
 **Authentication:** Webhook secret validation
 
 **Payload:**
+
 ```json
 {
   "sessionId": "uuid",
@@ -224,6 +243,7 @@ serve(async (req: Request) => {
 ## Authentication
 
 All API routes require authentication via Supabase Auth JWT tokens:
+
 - Bearer token in Authorization header
 - Automatic token refresh handled by Supabase client
 - RLS policies enforce data access control

@@ -12,6 +12,7 @@ The database schema supports user authentication, session recording management, 
 ## Tables
 
 ### profiles
+
 Extends Supabase auth.users with additional profile information.
 
 ```sql
@@ -38,6 +39,7 @@ CREATE POLICY "Users can update own profile" ON profiles
 ```
 
 ### sessions
+
 Stores recording sessions with metadata.
 
 ```sql
@@ -80,6 +82,7 @@ CREATE POLICY "Users can update own sessions" ON sessions
 ```
 
 ### transcriptions
+
 Stores transcription results from Whisper API.
 
 ```sql
@@ -116,6 +119,7 @@ CREATE POLICY "Users can update own transcriptions" ON transcriptions
 ```
 
 ### audio_processing_queue
+
 Queue for audio files awaiting transcription.
 
 ```sql

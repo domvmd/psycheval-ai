@@ -19,12 +19,14 @@ This is the technical specification for the spec detailed in @.agent-os/specs/20
 ## UI/UX Specifications
 
 ### Design System
+
 - Use shadcn/ui components for consistent UI
 - Implement dark mode support from the start
 - Follow Material Design principles for recording interface
 - Clear visual feedback for all user actions
 
 ### Key Pages
+
 1. **Landing Page** - Marketing page with sign up/login CTAs
 2. **Auth Pages** - Login, signup, password reset with form validation
 3. **Dashboard** - Session list with filtering and search
@@ -32,6 +34,7 @@ This is the technical specification for the spec detailed in @.agent-os/specs/20
 5. **Session Details** - Playback, transcription view, and metadata
 
 ### Recording Interface
+
 - Toggle between "Record" and "Upload" modes
 - For Recording:
   - Large, prominent record button with clear state indication
@@ -49,12 +52,14 @@ This is the technical specification for the spec detailed in @.agent-os/specs/20
 ## Integration Requirements
 
 ### Supabase Setup
+
 - Row Level Security (RLS) on all tables
 - Storage buckets for audio files with access policies
 - Edge Functions for transcription webhook handling
 - Realtime subscriptions for transcription updates
 
 ### OpenAI Whisper Integration
+
 - API endpoint for audio upload
 - Support for WebM/Opus and MP3 formats
 - Language detection for multi-language support
@@ -62,6 +67,7 @@ This is the technical specification for the spec detailed in @.agent-os/specs/20
 - Error handling for API failures
 
 ### Authentication Flow
+
 - JWT token management
 - Refresh token rotation
 - Session persistence across browser restarts
@@ -79,10 +85,12 @@ This is the technical specification for the spec detailed in @.agent-os/specs/20
 ## Approach Options
 
 **Option A:** Client-side recording with post-upload
+
 - Pros: Simple implementation, works offline during recording
 - Cons: Large file uploads, potential data loss
 
 **Option B:** Streaming upload during recording (Selected)
+
 - Pros: No data loss risk, progressive processing, smaller memory footprint
 - Cons: More complex implementation, requires stable connection
 

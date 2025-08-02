@@ -38,6 +38,7 @@ Mental health professionals currently spend 40-60% of their time on documentatio
 ### Rationale
 
 We chose to build a specialized AI-powered platform because:
+
 - Psychiatric evaluations require specific formatting and standards compliance that generic tools don't provide
 - Multi-language support is essential for serving diverse patient populations
 - The combination of Whisper's transcription capabilities and Claude's analytical abilities can produce high-quality, standards-compliant documentation
@@ -47,6 +48,7 @@ We chose to build a specialized AI-powered platform because:
 ### Consequences
 
 **Positive:**
+
 - Reduce documentation time by up to 70% for clinicians
 - Improve consistency and quality of psychiatric evaluations
 - Enable clinicians to serve multi-language populations effectively
@@ -54,6 +56,7 @@ We chose to build a specialized AI-powered platform because:
 - Ensure compliance with established psychiatric evaluation standards
 
 **Negative:**
+
 - Dependency on third-party AI services (OpenAI, Anthropic)
 - Ongoing API costs that scale with usage
 - Need for careful prompt engineering to maintain quality
@@ -100,6 +103,7 @@ The platform needs to be accessible from any device, secure for healthcare data,
 ### Consequences
 
 **Positive:**
+
 - Rapid development with modern tooling
 - Excellent user experience across devices
 - Built-in security features from Supabase
@@ -107,6 +111,7 @@ The platform needs to be accessible from any device, secure for healthcare data,
 - Strong ecosystem and community support
 
 **Negative:**
+
 - Browser audio recording limitations vs native
 - Dependency on Supabase for core functionality
 - Learning curve for team members new to Next.js 14 App Router

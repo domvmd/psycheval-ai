@@ -17,12 +17,14 @@ PsychEval AI is a SAAS platform that helps psychiatrists and clinical psychologi
 ### User Personas
 
 **Dr. Sarah Chen** (35-45 years old)
+
 - **Role:** Psychiatrist in private practice
 - **Context:** Sees 8-12 patients daily, spends 2-3 hours on documentation
 - **Pain Points:** Time-consuming documentation, maintaining consistency across evaluations, ensuring compliance with standards
 - **Goals:** Reduce documentation time by 70%, maintain high-quality evaluations, focus more on patient care
 
 **Dr. Miguel Rodriguez** (40-50 years old)
+
 - **Role:** Clinical Psychologist at community mental health center
 - **Context:** Works with diverse patient population, many Spanish-speaking clients
 - **Pain Points:** Language barriers in documentation, lengthy evaluation process, administrative burden

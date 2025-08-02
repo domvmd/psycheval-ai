@@ -14,7 +14,7 @@ Build the essential infrastructure and basic recording functionality for PsychEv
 
 As a psychiatrist, I want to record my patient sessions directly in my browser OR upload pre-recorded audio files, so that I can capture the full clinical encounter using my preferred recording method.
 
-The clinician opens PsychEval AI, logs in, and clicks "New Session". They can choose between two options: "Record Now" or "Upload Audio File". 
+The clinician opens PsychEval AI, logs in, and clicks "New Session". They can choose between two options: "Record Now" or "Upload Audio File".
 
 For browser recording: They enter basic session metadata (patient ID, session type) and click "Start Recording". The system requests microphone permission and begins recording audio. A visual indicator shows recording status and duration. When the session ends, they click "Stop Recording" and the audio is automatically saved and queued for transcription.
 
